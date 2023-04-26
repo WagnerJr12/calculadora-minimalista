@@ -1,0 +1,77 @@
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: linear-gradient(to bottom right,#3b96ff, #948cfd, #776ef7);
+    color: #333;
+}
+
+.main{
+    top: 10%;
+    position: absolute;
+    background: rgba(250, 250, 250, 0.3);
+    border-radius: 25px;
+    padding: 25px 20px;
+    width: 300px;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    box-shadow: 0 8px 50px rgba(51, 51, 51, 0.2);
+}
+
+.tela{
+    background: rgba(250, 250, 250, 0.8);
+    border-radius: 16px;
+    font-size: 40px;
+    padding: 10px;
+    text-align: right;
+}
+
+.linha-botoes{
+    display: flex;
+    justify-content: space-between;
+    margin: 7% 0;
+}
+
+.botao{
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 0;
+    border-radius: 27px;
+    padding: 15px 20px;
+    font-family: inherit;
+    font-size: 20px;
+    flex-basis: 22%;
+}
+
+.botao:last-child{
+    background: #443e9e;
+    border: 0;
+    color: #fff;
+    font-size: 30px;
+}
+
+.botao:hover{
+    background: #282555;
+    color: #fff;
+    border: 0;
+    box-shadow: 0 5px 30px rgba(51, 51, 51, 0.3);
+    transition: 0.2s;
+}
+
+.botao:active{
+    background: #443e9e;
+    transition: 0.1s;
+}
+
+.duplo{
+    flex-basis: 45%;
+}
+
+.triplo{
+    flex-basis: 74%;
+}
