@@ -1,7 +1,8 @@
 let tela = document.querySelector(".tela");
 let algarismo = "";
+let primeiroAlgarismo = 0;
+let resultado = 0;
 let simbolo = "";
-let calculo = 0;
 
 botoes = document.querySelectorAll(".botao");
 
@@ -9,7 +10,6 @@ botoes.forEach((botao) => {
     botao.addEventListener("click", (e) => {
         const textoBotao = e.target.textContent;
         inserirNaTela(textoBotao);
-        //console.log(textoBotao);
     })
 })
 
@@ -17,12 +17,10 @@ botoes.forEach((botao) => {
 function inserirNaTela (caractere) {
     if (caractere >= 0 && caractere <= 9){
         algarismo = algarismo + caractere;
-        calculo = algarismo;
         tela.innerHTML = algarismo;
     } else if (caractere === "C") {
-        calculo = 0;
         algarismo = "";
-        tela.innerHTML = calculo;
+        tela.innerHTML = 0;
     } else if (caractere === "←") {
         algarismo = algarismo.slice(0, -1);
         if (algarismo === ""){
@@ -30,5 +28,28 @@ function inserirNaTela (caractere) {
         } else {
             tela.innerHTML = algarismo;
         }
+    } else if (caractere === "÷" || caractere === "×" || caractere === "-" || caractere === "+") {
+        primeiroAlgarismo = parseInt(algarismo);
+        simbolo = caractere;
+        tela.innerHTML = caractere;
+        algarismo = "";
+    } else if (caractere === "=") {
+        resultado = calcula(primeiroAlgarismo, parseInt(algarismo), simbolo);
+        tela.innerHTML = resultado.toFixed(2);
     }
+}
+
+function calcula (valorUm, valorDois, operador) {
+    let calculo = 0;
+    if (operador === "÷") {
+        calculo = valorUm / valorDois;
+    } else if (operador === "×") {
+        calculo = valorUm * valorDois;
+    } else if (operador === "-") {
+        calculo = valorUm - valorDois;
+    } else if (operador === "+") {
+        calculo = valorUm + valorDois;
+    }
+    console.log(calculo)
+    return calculo;
 }
