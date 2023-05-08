@@ -1,8 +1,9 @@
 let tela = document.querySelector(".tela");
 let algarismo = "";
-let primeiroAlgarismo = 0;
+let primeiroAlgarismo = "";
 let resultado = 0;
 let simbolo = "";
+
 
 botoes = document.querySelectorAll(".botao");
 
@@ -21,6 +22,8 @@ function inserirNaTela (caractere) {
     } else if (caractere === "C") {
         algarismo = "";
         tela.innerHTML = 0;
+        primeiroAlgarismo = "";
+        resultado = 0;
     } else if (caractere === "←") {
         algarismo = algarismo.slice(0, -1);
         if (algarismo === ""){
@@ -28,14 +31,26 @@ function inserirNaTela (caractere) {
         } else {
             tela.innerHTML = algarismo;
         }
-    } else if (caractere === "÷" || caractere === "×" || caractere === "-" || caractere === "+") {
-        primeiroAlgarismo = parseInt(algarismo);
-        simbolo = caractere;
-        tela.innerHTML = caractere;
-        algarismo = "";
     } else if (caractere === "=") {
-        resultado = calcula(primeiroAlgarismo, parseInt(algarismo), simbolo);
-        tela.innerHTML = resultado.toFixed(2);
+        resultado = calcula(parseInt(primeiroAlgarismo), parseInt(algarismo), simbolo);
+        algarismo = resultado;
+        tela.innerHTML = parseInt(resultado);
+        primeiroAlgarismo = "";
+    } else { 
+        //simbolos da operação
+        if (primeiroAlgarismo === "") {
+            primeiroAlgarismo = algarismo;
+            simbolo = caractere;
+            tela.innerHTML = caractere;
+            algarismo = "";
+        }
+        else {
+            resultado = calcula(parseInt(primeiroAlgarismo), parseInt(algarismo), simbolo);
+            primeiroAlgarismo = resultado;
+            simbolo = caractere;
+            tela.innerHTML = caractere;
+            algarismo = "";
+        }
     }
 }
 
@@ -50,6 +65,5 @@ function calcula (valorUm, valorDois, operador) {
     } else if (operador === "+") {
         calculo = valorUm + valorDois;
     }
-    console.log(calculo)
     return calculo;
 }
