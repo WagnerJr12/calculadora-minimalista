@@ -8,7 +8,7 @@ Com esta calculadora, você pode executar operações de adição, subtração, 
 
 A interface da calculadora é intuitiva e fácil de usar. Basta clicar nos botões numéricos para inserir os números desejados. Os símbolos de operação (+, -, ×, ÷) permitem escolher a operação desejada. Ao pressionar o botão "=", a calculadora executará o cálculo e exibirá o resultado na tela.
 
-É importante mencionar que esta calculadora trabalha apenas com números inteiros, o que significa que não são aceitos números decimais, por esse motivo, não há o botão ",".
+É importante mencionar que esta calculadora trabalha apenas com números inteiros, o que significa que não são aceitos números decimais, por esse motivo não há o botão ",".
 
 Estou animado em compartilhar este projeto com você e estou constantemente aprimorando minhas habilidades de programação. Espero que esta calculadora seja útil para você em seus cálculos diários e também demonstre meu progresso na programação.
 
