@@ -33,7 +33,7 @@ function inserirNaTela (caractere) {
         }
     } else if (caractere === "=") {
         resultado = calcula(parseInt(primeiroAlgarismo), parseInt(algarismo), simbolo);
-        algarismo = resultado;
+        algarismo = resultado.toString();
         tela.innerHTML = parseInt(resultado);
         primeiroAlgarismo = "";
     } else { 
@@ -65,5 +65,6 @@ function calcula (valorUm, valorDois, operador) {
     } else if (operador === "+") {
         calculo = valorUm + valorDois;
     }
+
     return calculo;
 }
